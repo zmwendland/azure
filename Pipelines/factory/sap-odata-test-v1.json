@@ -1,0 +1,9 @@
+{
+	"name": "sap-odata-test-v1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3b9db3fa-e6ad-48a2-a26a-d30c9a8d9adb",
+		"tenantId": "94419ba8-cde2-4810-bd6c-5f74e1e2890b"
+	}
+}
