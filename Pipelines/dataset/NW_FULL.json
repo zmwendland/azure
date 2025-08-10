@@ -1,0 +1,15 @@
+{
+	"name": "NW_FULL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "Orders"
+		}
+	}
+}
