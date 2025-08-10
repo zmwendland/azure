@@ -1,0 +1,23 @@
+{
+	"name": "SourceDataset_nu6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_path": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": {
+				"value": "@dataset().cw_path",
+				"type": "Expression"
+			}
+		}
+	}
+}

@@ -1,0 +1,295 @@
+{
+	"name": "CopyPipeline_nu6",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_nu6",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_nu6",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "@{item().source.path}"
+								},
+								{
+									"name": "Destination",
+									"value": "nw-raw-all//@{item().destination.fileName}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "ODataSource"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"validateDataConsistency": false
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_nu6",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_path": "@item().source.path"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_nu6",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_fileName": "@item().destination.fileName"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"path": "Alphabetical_list_of_products"
+						},
+						"destination": {
+							"fileName": "Alphabetical_list_of_products.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Categories"
+						},
+						"destination": {
+							"fileName": "Categories.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Category_Sales_for_1997"
+						},
+						"destination": {
+							"fileName": "Category_Sales_for_1997.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Current_Product_Lists"
+						},
+						"destination": {
+							"fileName": "Current_Product_Lists.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Customer_and_Suppliers_by_Cities"
+						},
+						"destination": {
+							"fileName": "Customer_and_Suppliers_by_Cities.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "CustomerDemographics"
+						},
+						"destination": {
+							"fileName": "CustomerDemographics.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Customers"
+						},
+						"destination": {
+							"fileName": "Customers.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Employees"
+						},
+						"destination": {
+							"fileName": "Employees.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Invoices"
+						},
+						"destination": {
+							"fileName": "Invoices.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Order_Details"
+						},
+						"destination": {
+							"fileName": "Order_Details.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Order_Details_Extendeds"
+						},
+						"destination": {
+							"fileName": "Order_Details_Extendeds.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Order_Subtotals"
+						},
+						"destination": {
+							"fileName": "Order_Subtotals.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Orders"
+						},
+						"destination": {
+							"fileName": "Orders.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Orders_Qries"
+						},
+						"destination": {
+							"fileName": "Orders_Qries.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Product_Sales_for_1997"
+						},
+						"destination": {
+							"fileName": "Product_Sales_for_1997.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Products"
+						},
+						"destination": {
+							"fileName": "Products.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Products_Above_Average_Prices"
+						},
+						"destination": {
+							"fileName": "Products_Above_Average_Prices.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Products_by_Categories"
+						},
+						"destination": {
+							"fileName": "Products_by_Categories.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Regions"
+						},
+						"destination": {
+							"fileName": "Regions.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Sales_by_Categories"
+						},
+						"destination": {
+							"fileName": "Sales_by_Categories.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Sales_Totals_by_Amounts"
+						},
+						"destination": {
+							"fileName": "Sales_Totals_by_Amounts.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Shippers"
+						},
+						"destination": {
+							"fileName": "Shippers.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Summary_of_Sales_by_Quarters"
+						},
+						"destination": {
+							"fileName": "Summary_of_Sales_by_Quarters.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Summary_of_Sales_by_Years"
+						},
+						"destination": {
+							"fileName": "Summary_of_Sales_by_Years.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Suppliers"
+						},
+						"destination": {
+							"fileName": "Suppliers.txt"
+						}
+					},
+					{
+						"source": {
+							"path": "Territories"
+						},
+						"destination": {
+							"fileName": "Territories.txt"
+						}
+					}
+				]
+			}
+		},
+		"annotations": []
+	}
+}
