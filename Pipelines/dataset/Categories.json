@@ -1,0 +1,16 @@
+{
+	"name": "Categories",
+	"properties": {
+		"description": "Categories",
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "Categories"
+		}
+	}
+}
