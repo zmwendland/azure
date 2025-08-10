@@ -1,7 +1,6 @@
 {
-	"name": "Products",
+	"name": "Order_Details",
 	"properties": {
-		"description": "Products\n",
 		"linkedServiceName": {
 			"referenceName": "Northwinds",
 			"type": "LinkedServiceReference"
@@ -10,7 +9,7 @@
 		"type": "ODataResource",
 		"schema": [],
 		"typeProperties": {
-			"path": "Products"
+			"path": "Order_Details"
 		}
 	}
 }

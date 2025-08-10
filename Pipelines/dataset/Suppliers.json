@@ -1,7 +1,7 @@
 {
-	"name": "Products",
+	"name": "Suppliers",
 	"properties": {
-		"description": "Products\n",
+		"description": "Dim_Suppliers",
 		"linkedServiceName": {
 			"referenceName": "Northwinds",
 			"type": "LinkedServiceReference"
@@ -10,7 +10,7 @@
 		"type": "ODataResource",
 		"schema": [],
 		"typeProperties": {
-			"path": "Products"
+			"path": "Suppliers"
 		}
 	}
 }
