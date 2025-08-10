@@ -1,0 +1,292 @@
+{
+	"name": "NW-RAW-PIPE",
+	"properties": {
+		"description": "NW ",
+		"activities": [
+			{
+				"name": "ForEach_ngi",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_ngi",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "@{item().source.path}"
+								},
+								{
+									"name": "Destination",
+									"value": "nw-raw-all//@{item().destination.fileName}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "ODataSource"
+								},
+								"sink": {
+									"type": "ParquetSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "ParquetWriteSettings"
+									}
+								},
+								"enableStaging": true,
+								"stagingSettings": {
+									"linkedServiceName": {
+										"referenceName": "NorthwindsStorage",
+										"type": "LinkedServiceReference"
+									},
+									"path": "nw-raw-all"
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_ngi",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_path": "@item().source.path"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_ngi",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_fileName": "@item().destination.fileName"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"path": "Alphabetical_list_of_products"
+						},
+						"destination": {
+							"fileName": "Alphabetical_list_of_products.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Categories"
+						},
+						"destination": {
+							"fileName": "Categories.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Category_Sales_for_1997"
+						},
+						"destination": {
+							"fileName": "Category_Sales_for_1997.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Current_Product_Lists"
+						},
+						"destination": {
+							"fileName": "Current_Product_Lists.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Customer_and_Suppliers_by_Cities"
+						},
+						"destination": {
+							"fileName": "Customer_and_Suppliers_by_Cities.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "CustomerDemographics"
+						},
+						"destination": {
+							"fileName": "CustomerDemographics.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Customers"
+						},
+						"destination": {
+							"fileName": "Customers.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Invoices"
+						},
+						"destination": {
+							"fileName": "Invoices.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Order_Details"
+						},
+						"destination": {
+							"fileName": "Order_Details.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Order_Details_Extendeds"
+						},
+						"destination": {
+							"fileName": "Order_Details_Extendeds.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Order_Subtotals"
+						},
+						"destination": {
+							"fileName": "Order_Subtotals.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Orders"
+						},
+						"destination": {
+							"fileName": "Orders.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Orders_Qries"
+						},
+						"destination": {
+							"fileName": "Orders_Qries.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Product_Sales_for_1997"
+						},
+						"destination": {
+							"fileName": "Product_Sales_for_1997.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Products"
+						},
+						"destination": {
+							"fileName": "Products.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Products_Above_Average_Prices"
+						},
+						"destination": {
+							"fileName": "Products_Above_Average_Prices.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Products_by_Categories"
+						},
+						"destination": {
+							"fileName": "Products_by_Categories.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Regions"
+						},
+						"destination": {
+							"fileName": "Regions.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Sales_by_Categories"
+						},
+						"destination": {
+							"fileName": "Sales_by_Categories.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Sales_Totals_by_Amounts"
+						},
+						"destination": {
+							"fileName": "Sales_Totals_by_Amounts.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Shippers"
+						},
+						"destination": {
+							"fileName": "Shippers.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Summary_of_Sales_by_Quarters"
+						},
+						"destination": {
+							"fileName": "Summary_of_Sales_by_Quarters.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Summary_of_Sales_by_Years"
+						},
+						"destination": {
+							"fileName": "Summary_of_Sales_by_Years.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Suppliers"
+						},
+						"destination": {
+							"fileName": "Suppliers.parquet"
+						}
+					},
+					{
+						"source": {
+							"path": "Territories"
+						},
+						"destination": {
+							"fileName": "Territories.parquet"
+						}
+					}
+				]
+			}
+		},
+		"annotations": []
+	}
+}
