@@ -1,0 +1,16 @@
+{
+	"name": "Shippers",
+	"properties": {
+		"description": "Shippers",
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "Shippers"
+		}
+	}
+}

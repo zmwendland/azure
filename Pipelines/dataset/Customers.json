@@ -1,0 +1,16 @@
+{
+	"name": "Customers",
+	"properties": {
+		"description": "NW Customers",
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "Customers"
+		}
+	}
+}
