@@ -1,0 +1,16 @@
+{
+	"name": "Territories",
+	"properties": {
+		"description": "Territories",
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "Territories"
+		}
+	}
+}

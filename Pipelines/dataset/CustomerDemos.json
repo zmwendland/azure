@@ -1,0 +1,16 @@
+{
+	"name": "CustomerDemos",
+	"properties": {
+		"description": "Customer Demographics",
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "CustomerDemographics"
+		}
+	}
+}

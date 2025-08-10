@@ -1,0 +1,16 @@
+{
+	"name": "CustomerProducts",
+	"properties": {
+		"description": "Customer Products List",
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "Current_Product_Lists"
+		}
+	}
+}
