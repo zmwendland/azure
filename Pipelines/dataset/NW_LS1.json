@@ -1,0 +1,16 @@
+{
+	"name": "NW_LS1",
+	"properties": {
+		"description": "Products\n",
+		"linkedServiceName": {
+			"referenceName": "Northwinds",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ODataResource",
+		"schema": [],
+		"typeProperties": {
+			"path": "Products"
+		}
+	}
+}
