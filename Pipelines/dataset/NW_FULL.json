@@ -7,9 +7,6 @@
 		},
 		"annotations": [],
 		"type": "ODataResource",
-		"schema": [],
-		"typeProperties": {
-			"path": "Orders"
-		}
+		"schema": []
 	}
 }

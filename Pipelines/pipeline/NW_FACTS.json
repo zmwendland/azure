@@ -23,7 +23,11 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": {
+								"value": "@pipeline().TriggerTime\r\n\r\n",
+								"type": "Expression"
+							}
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -35,7 +39,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Orders",
+						"referenceName": "NW_FULL",
 						"type": "DatasetReference"
 					}
 				],
